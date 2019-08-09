@@ -10,6 +10,9 @@ const Recipes = (props) => (
 	            		<img className="recipe__box-img" src = {recipe.image_url} alt = {recipe.title} />
 	            		<div className="recipe__text">
 	            			<h5> { recipe.title} </h5>
+	            			<p className="recipes__subtitle">Publisher: <span>
+			                  { recipe.publisher }
+			                </span></p>
 	            		</div>
 			    	</div>
 	            </div>
