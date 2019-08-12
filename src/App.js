@@ -3,7 +3,7 @@ import './App.css';
 import Form from "./Components/Form";
 import Recipes from "./Components/Recipes";
 
-const API_KEY = 'fd076c8f8ff6b79eb2ea3aaa369fab91';
+const API_KEY = '1af6a68444c7a6af472981afc52572b1';
 
 class App extends Component {
 
@@ -21,6 +21,17 @@ class App extends Component {
     const data = await api_call.json();
     this.setState({ recipes : data.recipes })
     console.log(this.state.recipes);
+  }
+
+  componentDidMount = () => {
+    const json = localStorage.getItem("recipes");
+    const recipes = JSON.parse(json);
+    this.setState({ recipes });
+  }
+
+  componentDidUpdate = () => {
+    const recipes = JSON.stringify(this.state.recipes);
+    localStorage.setItem("recipes", recipes);
   }
 
   render() {
